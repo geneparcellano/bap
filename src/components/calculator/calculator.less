@@ -11,23 +11,35 @@ label {
 		color: #888;
 	}
 }
-.result {
+.right {
 	position: absolute;
 	top: 20px;
-	right: 250px;
-	height: 200px;
-	width: 200px;
-	padding: 0 20px;
+	right: 20px;
+}
+.space {
+	margin-top: 20px;
+}
+.tax-info,
+.result {
+	float: left;
+	margin-right: 20px;
+}
+.tax-info {
+	background-color: lightgray;
+	padding: 0 20px 20px;
+}
+.result {
+	padding: 0 20px 20px;
 	background-color: gold;
 }
-.brackets-list {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	list-style: none;
-	padding-left: 0;
+.brackets {
+	float: right;
 	font-size: 13px;
 
+	ul {
+		list-style: none;
+		padding-left: 50px;
+	}
 	.bracket-item {
 		position: relative;
 		margin-bottom: 10px;
