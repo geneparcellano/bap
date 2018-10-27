@@ -59,6 +59,24 @@ export default {
 					return 37;
 			}
 		},
+		taxRate() {
+			let s = this.annualSalary;
+
+			// Short term capital gain
+			if (!this.longTerm) {
+				return this.taxBracket;
+			}
+
+			// Long term capital gain
+			switch(true) {
+				case s <= 38600:
+					return 0;
+				case s >= 38601 && s <= 425800:
+					return 15;
+				case s >= 425801:
+					return 20;
+			}
+		},
 		taxRatePercent() {
 			let s = this.annualSalary;
 
