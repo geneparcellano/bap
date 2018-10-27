@@ -1,27 +1,136 @@
-label {
-	display: block;
-	font-size: 16px;
+/**********************************************************************
+General
+**********************************************************************/
+body {
+	font-size: 100%;
+	background-color: #e9edf6;
 }
-.input-group {
-	margin-bottom: 30px;
+header {
+	margin-bottom: 40px;
 
+	h1, p {
+		margin: 0;
+	}
 	p {
-		margin: 0 0 5px;
-		font-size: 13px;
 		color: #888;
 	}
+}
+
+/**********************************************************************
+Helpers
+**********************************************************************/
+.space {
+	margin-top: 20px;
 }
 .right {
 	position: absolute;
 	top: 20px;
 	right: 20px;
 }
-.space {
-	margin-top: 20px;
+.red {
+	color: red;
+}
+
+/**********************************************************************
+Forms
+**********************************************************************/
+label {
+	display: block;
+	font-weight: bold;
+	font-size: 16px;
+}
+input {
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	font-size: 1em;
+}
+button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: lightgray;
+	color: gray;
+	// text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1em;
+	cursor: pointer;
+	outline: none;
+
+	&:hover {
+		background-color: darken(lightgray, 10%);
+	}
+	&:active {
+		color: lightgray;
+		background-color: darken(lightgray, 25%);
+	}
+}
+.input-group,
+.data-group {
+	p {
+		margin: 0 0 5px;
+		font-size: 13px;
+		color: #888;
+	}
+}
+.input-group {
+	margin-bottom: 30px;
+}
+
+/**********************************************************************
+Tooltip
+**********************************************************************/
+.tooltip {
+	display: inline;
+	position: relative;
+}
+.tooltip-label {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.tooltip-content {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	margin: -40px 0 0 20px;
+	width: 250px;
+	padding: 10px 20px;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.75);
+	color: white;
+
+	&:after {
+		right: 100%;
+		top: 50px;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(69, 212, 255, 0);
+		border-right-color: rgba(0, 0, 0, 0.75);
+		border-width: 10px;
+		margin-top: -10px;
+	}
+}
+.tooltip:hover .tooltip-content {
+	display: block;
+}
+
+/**********************************************************************
+Layout
+**********************************************************************/
+#calculator {
+	position: relative;
+	min-width: 800px;
+	padding: 30px;
 }
 .tax-info,
 .result {
 	float: left;
+	width: 200px;
 	margin-right: 20px;
 }
 .tax-info {
@@ -38,11 +147,17 @@ label {
 
 	ul {
 		list-style: none;
-		padding-left: 50px;
+		padding-left: 0;
 	}
 	.bracket-item {
 		position: relative;
+		padding-left: 50px;
 		margin-bottom: 10px;
+
+		&:not(:first-child) {
+			padding-top: 10px;
+			border-top: 1px dotted gray;
+		}
 	}
 	.rate,
 	.single,
@@ -51,7 +166,17 @@ label {
 	}
 	.rate {
 		position: absolute;
-		top: 2px;
-		left: -40px;
+		left: 0;
+	}
+}
+.bap {
+	padding-top: 10px;
+	border-top: 1px dotted gray;
+	strong {
+		display: block;
+		font-size: 1.5em;
+	}
+	p {
+		color: inherit;
 	}
 }
